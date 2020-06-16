@@ -1,0 +1,2 @@
+class ReactCrudDatum < ApplicationRecord
+end
