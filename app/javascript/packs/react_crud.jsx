@@ -76,7 +76,6 @@ class ReactCrudComponent extends React.Component {
     const value = event.target.value;
     this.setState((state) => {
       state.name = value;
-      console.log(state)
       return {name: state.name}
     })
   }
