@@ -202,7 +202,10 @@ class ReactCrudComponent extends React.Component {
                 return (
                   <div className="card" key={index}>
                     <div className="card-header">
-                      {item.name} <br/>{format(new Date(Date.parse(item.updated_at)), 'yyyy年MM月dd日(iiii) HH:mm:ss', {locale: ja})}
+                      <a href={`/react_crud_data/${item.id}`}>{item.name}</a>
+                      <div>
+                        {format(new Date(Date.parse(item.updated_at)), 'yyyy年MM月dd日(iiii) HH:mm:ss', {locale: ja})}
+                      </div>
                     </div>
                     <div className="card-body">
                       {item.comment}
