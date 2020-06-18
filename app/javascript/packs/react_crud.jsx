@@ -9,6 +9,7 @@ import {format} from 'date-fns'
 import ja from 'date-fns/locale/ja'
 
 import 'formdata-polyfill'
+import StatusMessage from "./status_message";
 
 class ReactCrudComponent extends React.Component {
   constructor(props) {
@@ -181,11 +182,7 @@ class ReactCrudComponent extends React.Component {
     } else {
       return (
         <div>
-          <p />
-          <div className="fixed-bottom bg-dark text-white" style={{opacity: 0.55}}>
-            <span>&nbsp;&nbsp;</span>
-            <span>{this.state.status}</span>
-          </div>
+          <StatusMessage status={this.state.status} />
           <h3>投稿</h3>
           <p />
           <form onSubmit={this.handleInsert.bind(this)}>

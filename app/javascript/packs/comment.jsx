@@ -8,6 +8,7 @@ import {format} from 'date-fns'
 import ja from 'date-fns/locale/ja'
 
 import 'formdata-polyfill'
+import StatusMessage from "./status_message";
 
 class Comment extends React.Component {
   constructor(props) {
@@ -175,6 +176,7 @@ class Comment extends React.Component {
     } else {
       return (
         <div>
+          <StatusMessage status={this.state.status} />
           <div className="card w-100 mt-3">
             <div className="card-body">
               <h3 className="card-title">{item.name}</h3>
