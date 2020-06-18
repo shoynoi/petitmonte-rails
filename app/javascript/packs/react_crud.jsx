@@ -151,7 +151,7 @@ class ReactCrudComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/react_crud_data/index.json")
+    fetch("http://localhost:3000/react_crud_data.json")
       .then(res => res.json())
       .then((result) => {
         const mode = Array(result.length).fill(null)
