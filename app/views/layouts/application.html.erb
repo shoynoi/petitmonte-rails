@@ -9,15 +9,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag 'react_crud' %>
   </head>
 
   <body>
     <div class="navbar navbar-expand-md navbar-light bg-primary">
-      <div class="navbar-brand text-white"><%= "Rails + React + AjaxでCRUDのサンプルプロジェクト" %></div>
+      <div class="navbar-brand">
+        <%= link_to "Rails + React + AjaxでCRUDのサンプルプロジェクト", root_path, class: "text-white" %>
+      </div>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <%= link_to "すべて初期化", new_react_crud_data_path, class: "nav-link", style: "color: #fff;" %>
+          <%= link_to "すべて初期化", new_react_crud_datum_path, class: "nav-link", style: "color: #fff;" %>
         </li>
       </ul>
     </div>

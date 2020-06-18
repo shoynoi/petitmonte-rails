@@ -9,6 +9,7 @@ import {format} from 'date-fns'
 import ja from 'date-fns/locale/ja'
 
 import 'formdata-polyfill'
+import StatusMessage from "./status_message";
 
 class ReactCrudComponent extends React.Component {
   constructor(props) {
@@ -151,7 +152,7 @@ class ReactCrudComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/react_crud_data/index.json")
+    fetch("http://localhost:3000/react_crud_data.json")
       .then(res => res.json())
       .then((result) => {
         const mode = Array(result.length).fill(null)
@@ -164,7 +165,7 @@ class ReactCrudComponent extends React.Component {
       },
         (error) => {
         this.setState({
-          isLoaded: false,
+          isLoaded: true,
           error
         })
         }
@@ -181,11 +182,7 @@ class ReactCrudComponent extends React.Component {
     } else {
       return (
         <div>
-          <p />
-          <div className="fixed-bottom bg-dark text-white" style={{opacity: 0.55}}>
-            <span>&nbsp;&nbsp;</span>
-            <span>{this.state.status}</span>
-          </div>
+          <StatusMessage status={this.state.status} />
           <h3>投稿</h3>
           <p />
           <form onSubmit={this.handleInsert.bind(this)}>
@@ -202,7 +199,10 @@ class ReactCrudComponent extends React.Component {
                 return (
                   <div className="card" key={index}>
                     <div className="card-header">
-                      {item.name} <br/>{format(new Date(Date.parse(item.updated_at)), 'yyyy年MM月dd日(iiii) HH:mm:ss', {locale: ja})}
+                      <a href={`/react_crud_data/${item.id}`}>{item.name}</a>
+                      <div>
+                        {format(new Date(Date.parse(item.updated_at)), 'yyyy年MM月dd日(iiii) HH:mm:ss', {locale: ja})}
+                      </div>
                     </div>
                     <div className="card-body">
                       {item.comment}
