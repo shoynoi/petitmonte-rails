@@ -1,12 +1,20 @@
 # frozen_string_literal: true
 
 class ReactCrudDataController < ApplicationController
-  before_action :set_datum, only: %i[update destroy]
+  before_action :set_datum, only: %i[update destroy show]
   def index
     @data = ReactCrudDatum.all.order(updated_at: :desc)
     respond_to do |format|
       format.html
       format.json { render json: @data }
+    end
+  end
+
+  def show
+    @id = params[:id]
+    respond_to do |format|
+      format.html
+      format.json { render json: @datum }
     end
   end
 
