@@ -164,7 +164,7 @@ class ReactCrudComponent extends React.Component {
       },
         (error) => {
         this.setState({
-          isLoaded: false,
+          isLoaded: true,
           error
         })
         }
